@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width">
 	<title><?php wp_title( " | ", true, "right" ); ?>
 	</title>
-	<link type="text/css" rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/stylesheets/styles.css"><?php wp_head(); ?>
+	<link type="text/css" rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style.css"><?php wp_head(); ?>
 </head><body <?php body_class(); ?>>
 <header role="banner">
 	<h1><?php wp_title(); ?>
