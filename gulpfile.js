@@ -24,7 +24,7 @@ var paths = {
 		dest: "./target/oniric/"
 	},
 	php:{
-		src:"./src/php/*.php",
+		src:"./src/php/*",
 		dest: "./target/oniric/"
 	},
 	bower:{
@@ -71,6 +71,6 @@ gulp.task('full', ['bower', 'copy','templates','styles']);
 gulp.task("default", function() {
 	gulp.watch(paths.styles.src, ["styles"]);
 	gulp.watch(paths.templates.src, ["templates"]);
-	gulp.watch(paths.php.src, ["php"]);
+	gulp.watch(paths.php.src, ["copy"]);
 	gulp.watch(paths.bower.src, ["bower"]);
 });

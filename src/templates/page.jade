@@ -1,25 +1,24 @@
 - get_header();
 section(role="main").entry
 	- if ( have_posts() ) : while ( have_posts() ) : the_post();
-		article(id!="post-<?php the_ID(); ?>" class!="<?php post_class(); ?>")
-			header.header
-				.row
-					.col-lg-12
-						h1
-							- the_title();
+		article(class!="<?= join(' ',get_post_class()); ?>",
+		id!="post-<?php the_ID(); ?>")
 			section.content
-				- if (is_page("")) {
+				- if (is_page()) {
 					.some-container
 						.row
 							.col-lg-6
+								- the_content();
+
 							.col-lg-6
+								- get_template_part("sidenav");
 				- } else {
 					.article-container
 						.row
-							.col-lg-3.nav
-								- get_template_part("sidenav");
-							.col-lg-3.art.left-justify
+							.col-lg-6
 								- the_content();
+							.col-lg-6
+								- get_template_part("sidenav");
 				- }
 	- endwhile; endif;
 - get_template_part("");

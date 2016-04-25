@@ -5,8 +5,8 @@ head
 	meta(name="viewport" content="width=device-width")
 	title
 		- wp_title( " | ", true, "right" );
-	link(type="text/css" rel="stylesheet" href!="styles.css")
-	link(type="text/css" rel="stylesheet" href!="lib/bootstrap/css/bootstrap.css")
+	link(type="text/css" rel="stylesheet" href!="<?php echo get_stylesheet_directory_uri(); ?>/styles.css")
+	link(type="text/css" rel="stylesheet" href!="<?php echo get_stylesheet_directory_uri(); ?>/lib/bootstrap/css/bootstrap.css")
 	- wp_head();
 | <body <?php body_class(); ?>>
 header(role="banner")
