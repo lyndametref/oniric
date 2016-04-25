@@ -3,6 +3,7 @@ bower_components
 .DS_Store
 .sass-cache
 .sublime*
+target
 
 *~
 .DS_Store

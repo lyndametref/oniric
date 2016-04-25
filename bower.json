@@ -1,9 +1,17 @@
 {
-  "name": "Blank-Gulp-Jade-Compass-Sass-Template-WordPress-Theme-Using-Bootstrap",
-  "version": "0.0.3",
-  "private": "true",
-  "repository": "http://www.github.com/ajschlosser/wordpress-jade-bootstrap-template.git",
-  "dependencies": {
-    "jquery": "~2.1.1"
-  }
+   "name": "Oniric",
+   "version": "0.0.1",
+   "private": "true",
+   "dependencies": {
+      "jquery": "~2.1.1",
+      "bootstrap": "^3.3.6"
+   },
+   "overrides": {
+      "bootstrap": {
+         "main": [
+           "dist/css/bootstrap.css",
+           "dist/js/bootstrap.js"
+         ]
+      }
+   }
 }

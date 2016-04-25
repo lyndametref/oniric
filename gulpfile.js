@@ -1,103 +1,76 @@
 /*
 * Basic Gulp.js workflow
 * for simple front-end projects
-* author: Aaron John Schlosser
-* homepage: http://www.aaronschlosser.com
-* github: http://www.github.com/ajschlosser
+* author: Lynda Metref, Aaron John Schlosser
 */
 
-// var gulp				= require("gulp"),
-// 	gutil				= require("gulp-util"),
-// 	watch				= require("gulp-watch"),
-// 	compass				= require("gulp-compass"),
-// 	jade				= require("gulp-jade-php"),
-// 	plumber				= require("gulp-plumber");
-
-// var paths = {
-// 	styles: {
-// 		src: "./scss/**/*.scss",
-// 		dest: "stylesheets"
-// 	},
-// 	templates: {
-// 		src: "./templates/*.jade",
-// 		dest: "./"
-// 	}
-// };
-
-// function handleError(err) {
-// 	console.log(err.toString());
-// 	this.emit('end');
-// }
-
-// gulp.task("styles", function() {
-// 	return gulp.src(paths.styles.src)
-// 		.pipe(plumber())
-// 		.pipe(compass({
-// 			config_file: "./config.rb",
-// 			css: "stylesheets",
-// 			sass: "scss",
-// 			image: "./images",
-// 			import_path: "./bower_components"
-// 		}))
-// 		.on("error", handleError)
-// 		.pipe(plumber.stop())
-// 		.pipe(gulp.dest(paths.styles.dest));
-// });
-
-// gulp.task("templates", function() {
-// 	gulp.src(paths.templates.src)
-// 		.pipe(plumber())
-// 		.pipe(jade({
-// 			pretty: '\t'	// Set to false to minify/uglify the PHP
-// 		}))
-// 		.pipe(plumber.stop())
-// 		.pipe(gulp.dest(paths.templates.dest));
-// });
-
-// gulp.task("default", function() {
-// 	gulp.watch(paths.styles.src, ["styles"]);
-// 	gulp.watch(paths.templates.src, ["templates"]);
-// });
-
 var gulp = require('gulp');
+var copy = require('gulp-contrib-copy');
 var watch = require("gulp-watch");
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var jade = require("gulp-jade-php");
 var plumber = require("gulp-plumber");
+var bower = require('main-bower-files');
+var bowerNormalizer = require('gulp-bower-normalize');
 
 var paths = {
 	styles: {
-		src: "./scss/*.scss",
-		dest: "stylesheets"
+		src: "./src/scss/*.scss",
+		dest: "./target/oniric/"
 	},
 	templates: {
-		src: "./templates/*.jade",
-		dest: "./"
+		src: "./src/templates/*.jade",
+		dest: "./target/oniric/"
+	},
+	php:{
+		src:"./src/php/*.php",
+		dest: "./target/oniric/"
+	},
+	bower:{
+		src: "./bower_components",
+		dest:"./target/oniric/lib/",
+		conf: "./bower.json"
 	}
 };
 
 gulp.task('styles', function() {
-    return gulp.src('./scss/*.scss')
-	    .pipe(sass())
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
-			cascade: false
-		}))
-	    .pipe(gulp.dest('./stylesheets'));
+	gulp.src(paths.styles.src)
+	.pipe(sass())
+	.pipe(autoprefixer({
+		browsers: ['last 2 versions'],
+		cascade: false
+	}))
+	.pipe(gulp.dest(paths.styles.dest));
 });
 
-gulp.task("templates", function() {
+gulp.task('templates', function() {
 	gulp.src(paths.templates.src)
-		.pipe(plumber())
-		.pipe(jade({
-			pretty: '\t'	// Set to false to minify/uglify the PHP
-		}))
-		.pipe(plumber.stop())
-		.pipe(gulp.dest(paths.templates.dest));
+	.pipe(plumber())
+	.pipe(jade({
+		pretty: '\t'	// Set to false to minify/uglify the PHP
+	}))
+	.pipe(plumber.stop())
+	.pipe(gulp.dest(paths.templates.dest));
 });
+
+gulp.task('copy', function() {
+	gulp.src(paths.php.src)
+	.pipe(copy())
+	.pipe(gulp.dest(paths.php.dest));
+});
+
+gulp.task('bower', function() {
+	gulp.src(bower(), {base: paths.bower.src})
+	.pipe(bowerNormalizer({bowerJson: paths.bower.conf}))
+	.pipe(gulp.dest(paths.bower.dest))
+});
+
+gulp.task('full', ['bower', 'copy','templates','styles']);
 
 gulp.task("default", function() {
 	gulp.watch(paths.styles.src, ["styles"]);
 	gulp.watch(paths.templates.src, ["templates"]);
+	gulp.watch(paths.php.src, ["php"]);
+	gulp.watch(paths.bower.src, ["bower"]);
 });
