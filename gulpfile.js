@@ -46,11 +46,7 @@ gulp.task('styles', function() {
 
 gulp.task('templates', function() {
 	gulp.src(paths.templates.src)
-	.pipe(plumber())
-	.pipe(jade({
-		pretty: '\t'	// Set to false to minify/uglify the PHP
-	}))
-	.pipe(plumber.stop())
+	.pipe(jade({pretty:true}))
 	.pipe(gulp.dest(paths.templates.dest));
 });
 
@@ -68,7 +64,7 @@ gulp.task('bower', function() {
 
 gulp.task('full', ['bower', 'copy','templates','styles']);
 
-gulp.task("default", function() {
+gulp.task("default",['full'], function() {
 	gulp.watch(paths.styles.src, ["styles"]);
 	gulp.watch(paths.templates.src, ["templates"]);
 	gulp.watch(paths.php.src, ["copy"]);

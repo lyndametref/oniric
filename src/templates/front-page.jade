@@ -1,13 +1,16 @@
 - get_header();
-- get_template_part( "" );
-section(role="main").content
-	- if ( have_posts() ) {
-		- while ( have_posts() ) {
+.container
+	.row
+		.col-lg-6
+			- if ( have_posts() ) {
+			- while ( have_posts() ) {
 			- the_post();
 			- $more; $more = FALSE;
-			.content.fixed-width-centered
-				- if ($content = get_the_content("Read More", true)) echo $content;
-		- }
-	- }
-- get_template_part( "" );
+					.content.fixed-width-centered
+						- if ($content = get_the_content("Read More", true)) echo $content;
+				- }
+			- }
+		.col-lg-6
+			- get_template_part("sidebar");
+
 - get_footer();

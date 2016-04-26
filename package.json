@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A template for WordPress ready to use with Jade, Gulp and  Bootstrap",
   "main": "gulpfile.js",
-  "repository":"",
+  "repository": "",
   "author": "Lynda Metref, Aaron John Schlosser",
   "license": "GPL-3.0",
   "devDependencies": {
@@ -12,13 +12,12 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-bower-normalize": "^1.0.6",
     "gulp-contrib-copy": "^0.1.2",
-    "gulp-jade-php": "^1.0.0",
     "gulp-livereload": "^3.8.1",
     "gulp-plumber": "^0.6.5",
+    "gulp-pug": "^2.0.0",
     "gulp-sass": "^2.1.1",
     "gulp-util": "^3.0.0",
     "gulp-watch": "^0.6.9",
-    "jade": "^1.5.0",
     "main-bower-files": "^2.11.1"
   }
 }

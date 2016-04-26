@@ -1,17 +1,22 @@
 doctype html
-| <html <?php language_attributes(); ?>>
+
+| <html <?php language_attributes(); ?> class="no-js">
+
 head
 	meta(charset!="<?php bloginfo('charset'); ?>")
 	meta(name="viewport" content="width=device-width")
 	title
-		- wp_title( " | ", true, "right" );
+		- wp_title();
+
 	link(type="text/css" rel="stylesheet" href!="<?php echo get_stylesheet_directory_uri(); ?>/styles.css")
 	link(type="text/css" rel="stylesheet" href!="<?php echo get_stylesheet_directory_uri(); ?>/lib/bootstrap/css/bootstrap.css")
+	link(type="text/css" rel="stylesheet" href!="<?php echo get_stylesheet_directory_uri(); ?>/lib/bootstrap/css/bootstrap-theme.css")
+
 	- wp_head();
+
 | <body <?php body_class(); ?>>
-header(role="banner")
+header
 	h1
-		- wp_title();
-	nav(role="navigation")
-		- wp_nav_menu();
-hr
+		- bloginfo( 'name' );
+
+- get_template_part( 'nav' );

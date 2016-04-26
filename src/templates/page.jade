@@ -1,26 +1,16 @@
 - get_header();
-section(role="main").entry
-	- if ( have_posts() ) : while ( have_posts() ) : the_post();
-		article(class!="<?= join(' ',get_post_class()); ?>",
-		id!="post-<?php the_ID(); ?>")
-			section.content
-				- if (is_page()) {
-					.some-container
-						.row
-							.col-lg-6
-								- the_content();
 
-							.col-lg-6
-								- get_template_part("sidenav");
-				- } else {
-					.article-container
-						.row
-							.col-lg-6
-								- the_content();
-							.col-lg-6
-								- get_template_part("sidenav");
-				- }
-	- endwhile; endif;
-- get_template_part("");
-- get_sidebar();
+.container
+	.row
+		.col-lg-8
+			- if ( have_posts() ) :
+			- while ( have_posts() ) :
+			- the_post();
+			- the_content();
+			- endwhile;
+			- endif;
+
+		.col-lg-4
+			- get_template_part("sidebar");
+
 - get_footer();

@@ -1,10 +1,18 @@
 - get_header();
-section(role="main")
-	- if ( have_posts() ) : while ( have_posts() ) : the_post();
-	- get_template_part( 'entry' ); 
-	- if ( ! post_password_required() ) comments_template( '', true );
-	- endwhile; endif;
-	footer
-		- get_template_part( 'nav', 'below-single' );
-- get_sidebar();
+
+.container
+	.row
+		.col-lg-8
+			- if ( have_posts() ) :
+			- while ( have_posts() ) :
+			- the_post();
+			h1
+				- wp_title();
+			- if ($content = get_the_content("Read More", true)) echo $content;
+			- endwhile;
+			- endif;
+
+		.col-lg-4
+			- get_template_part("sidebar");
+
 - get_footer();

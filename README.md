@@ -1,6 +1,9 @@
 # Oniric: Wordpress Theme
 realised by Lynda Metref and based on Aaron John Schlosser's Blank Gulp/Jade/Compass/Sass Template WordPress Theme Using Bootstrap.
 
+## Warning
+**This work is currently in progress and is not working properly**
+
 ### Description
 
 The bare essentials of a WordPress theme, no CSS styles added. Perfect for those who would like to build their own theme from scratch. One custom menu and one widgetized sidebar to get you started.  Template provides built-in support for building sites with Gulp, Pug and Sass. It also install required dependencies to use Bootstrap.
