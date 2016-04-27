@@ -1,0 +1,15 @@
+- get_header();
+
+.container
+	.row
+		.col-lg-8
+			- if ( have_posts() ) :
+			- while ( have_posts() ) :
+			- the_post();
+			- endwhile;
+			- endif;
+
+		.col-lg-4
+			- get_template_part("sidebar");
+
+- get_footer();
