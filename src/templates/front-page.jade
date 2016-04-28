@@ -10,29 +10,32 @@
 				- the_date();
 			.post-featured-image
 				- the_post_thumbnail(array(500,500));
-				
+
 			.post-body
 				- the_content();
 			- endif;
-			
 		.col-lg-4
 			- get_template_part("sidebar");
 	.row
-		.col-lg-12
+		hr
+		- static $count = 1;
 		- if ( have_posts() ) :
 		- while ( have_posts() ) :
 		- the_post();
-		h1
-			- the_shortlink(get_the_title());
-		h4
-			- the_date();
-		
-		.post-featured-image
-			- the_post_thumbnail(array(500,500));
-		
-		.post-body
-			- the_content();
-			
+		- if ($count > "3") { break; }
+		- $count++;
+		.col-lg-4
+			h1
+				- the_shortlink(get_the_title());
+			h4
+				- the_date();
+
+			.post-featured-image
+				- the_post_thumbnail(array(500,500));
+
+			.post-body
+				- the_excerpt();
+
 		- endwhile;
 		- endif;
 
