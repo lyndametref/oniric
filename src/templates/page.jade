@@ -2,15 +2,17 @@
 
 .container
 	.row
-		.col-lg-8
-			- if ( have_posts() ) :
-			- while ( have_posts() ) :
-			- the_post();
-			- the_content();
-			- endwhile;
-			- endif;
+		.col-lg-12
+		- if ( have_posts() ) :
+		- the_post();
+		h1
+			- the_title();
 
-		.col-lg-4
-			- get_template_part("sidebar");
+		.post-featured-image
+			- the_post_thumbnail(array(500,500));
+			
+		.post-body
+			- the_content();
+		- endif;
 
 - get_footer();
