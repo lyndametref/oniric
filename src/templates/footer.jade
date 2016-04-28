@@ -1,15 +1,19 @@
 footer
 	.container
 		.row
-			.col-lg-4 footer 1
-				ul#Footer1
+			.col-lg-4
+				ul#Footer1.widget-area
 					-dynamic_sidebar( 'Footer 1 Widgets Area' );
-			.col-lg-4 footer 2
-				ul#Footer2
+			.col-lg-4
+				ul#Footer2.widget-area
 					-dynamic_sidebar( 'Footer 2 Widgets Area' );
-			.col-lg-4 footer 3
-				ul#Footer3
+			.col-lg-4
+				ul#Footer3.widget-area
 					-dynamic_sidebar( 'Footer 3 Widgets Area' );
+		.row
+			.col-lg-12
+				ul#Footer4.widget-area
+					-dynamic_sidebar( 'Footer 4 Widgets Area' );
 
 script(src!="<?php echo get_stylesheet_directory_uri(); ?>/lib/jquery/js/jquery.js")
 script(src!="<?php echo get_stylesheet_directory_uri(); ?>/lib/bootstrap/js/bootstrap.js")
