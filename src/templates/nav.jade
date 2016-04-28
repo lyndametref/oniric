@@ -4,14 +4,15 @@ nav(class="navbar navbar-default")
 			button(type="button", class="navbar-toggle collapsed", data-toggle="collapse", data-target="#bs-navbar", aria-controls="bs-navbar", aria-expanded="false")
 				span.sr-only Toggle navigation
 				span.icon-bar
+		div(class="collapse navbar-collapse",id="main-navbar-collapse")
+			| <?php wp_nav_menu(array(
+			|			'theme_location' => 'primary',
+			|			'container' => false,
+			|			'menu_class' => 'nav navbar-nav',
+			|			'menu_id' => 'main-menu-list',
+			|			'fallback_cb' => false)); ?>
+			
+			ul#SidebarWidegets(class="nav navbar-nav navbar-right")
+				-dynamic_sidebar( 'Navbar Widgets Area' );
 
-	| <?php wp_nav_menu(array(
-	|			'theme_location' => 'primary',
-	|			'container' => 'div',
-	|			'container_id' => 'main-navbar-collapse',
-	|			'container_class' => 'collapse navbar-collapse',
-	|			'menu_class' => 'nav navbar-nav',
-	|			'menu_id' => 'main-menu-list',
-	|			'fallback_cb' => false,
-	|			'walker' => '')); ?>
 	// https://wordpress.org/support/topic/wp_nav_menu-menu_class-usage-bug

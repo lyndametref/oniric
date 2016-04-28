@@ -4,23 +4,16 @@ wp_deregister_script( 'jquery' );
 add_filter("gform_init_scripts_footer", "init_scripts");
 function init_scripts() { return true; }
 
-// This theme uses wp_nav_menu() in two locations.
+// register two menus
 register_nav_menus( array(
 	'primary'   => __( 'Top Menu', 'blank' ),
-	'secondary' => __( 'Left Sidebar Menu', 'blank' ),
-	'tertiary'  => __( 'Practice Areas Menu', 'blank')
+	'secondary' => __( 'Right Sidebar Menu', 'blank' )
 ) );
 
-// register a sidebar in the theme
-register_sidebars(1, array('name' => 'Sidebar'));
-register_sidebars(3, array('name' => 'Footer %d'));
-
-// Enable use of custom logo in the theme
-function mytheme_setup() {
-	add_image_size('mytheme-logo', 160, 90);
-	add_theme_support('custom-logo', array('size' => 'mytheme-logo'));
-}
-add_action('after_setup_theme', 'mytheme_setup');
+// register several widget areas in the theme
+register_sidebars(1, array('name' => 'Sidebar Widget Area'));
+register_sidebars(1, array('name' => 'Navbar Widgets Area'));
+register_sidebars(3, array('name' => 'Footer %d Widgets Area'));
 
 // Advanced Custom Fields Fuctions
 function convert_field_to_array ($f) { return explode("</p>", get_field($f)); }

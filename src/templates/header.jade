@@ -16,7 +16,10 @@ head
 
 | <body <?php body_class(); ?>>
 header
-	h1
-		- bloginfo( 'name' );
+	.container
+		//ugly hack using icon as logo need to be changed to cusom-logo when updating to WP 4.5
+		| <img src="<?=  site_icon_url($size=40);?>"/>
+		h1
+			- bloginfo( 'name' );
 
 - get_template_part( 'nav' );
