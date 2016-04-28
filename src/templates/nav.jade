@@ -10,7 +10,8 @@ nav(class="navbar navbar-default")
 			|			'container' => false,
 			|			'menu_class' => 'nav navbar-nav',
 			|			'menu_id' => 'main-menu-list',
-			|			'fallback_cb' => false)); ?>
+			|			'fallback_cb' => false,
+			|			'walker' => new wp_bootstrap_navwalker())); ?>
 			
 			ul#SidebarWidegets(class="nav navbar-nav navbar-right")
 				-dynamic_sidebar( 'Navbar Widgets Area' );
