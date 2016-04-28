@@ -2,15 +2,38 @@
 .container
 	.row
 		.col-lg-6
-			- if ( have_posts() ) {
-			- while ( have_posts() ) {
+			- if ( have_posts() ) :
 			- the_post();
-			- $more; $more = FALSE;
-					.content.fixed-width-centered
-						- if ($content = get_the_content("Read More", true)) echo $content;
-				- }
-			- }
+			h1
+				- the_shortlink(get_the_title());
+			h4
+				- the_date();
+			.post-featured-image
+				- the_post_thumbnail(array(500,500));
+				
+			.post-body
+				- the_content();
+			- endif;
+			
 		.col-lg-6
 			- get_template_part("sidebar");
+	.row
+		.col-lg-12
+		- if ( have_posts() ) :
+		- while ( have_posts() ) :
+		- the_post();
+		h1
+			- the_shortlink(get_the_title());
+		h4
+			- the_date();
+		
+		.post-featured-image
+			- the_post_thumbnail(array(500,500));
+		
+		.post-body
+			- the_content();
+			
+		- endwhile;
+		- endif;
 
 - get_footer();
