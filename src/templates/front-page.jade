@@ -1,7 +1,7 @@
 - get_header();
 .container
 	.row
-		.col-lg-6
+		.col-lg-8
 			- if ( have_posts() ) :
 			- the_post();
 			h1
@@ -15,7 +15,7 @@
 				- the_content();
 			- endif;
 			
-		.col-lg-6
+		.col-lg-4
 			- get_template_part("sidebar");
 	.row
 		.col-lg-12
