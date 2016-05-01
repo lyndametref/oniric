@@ -15,7 +15,7 @@
 	- foreach ( $postslist as $post ) :
 	- setup_postdata( $post );
 	- if ($count%3 == "0"):
-	.row
+	| <div class='row'>
 	- endif;
 		.col-lg-4
 			h1
@@ -31,6 +31,10 @@
 
 			.post-body
 				- the_excerpt('Pour en savoir plus');
+	- if ($count%3 == "0"):
+	| </div>
+	- endif;
+
 	- $count++;
 	- endforeach;
 	- wp_reset_postdata();
