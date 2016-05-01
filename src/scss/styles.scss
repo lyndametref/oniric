@@ -1,3 +1,26 @@
-html {
+
+@import 'palette';
+
+body.home {
   font-family: sans-serif;
+  background-color: $secondary-color-light;
+}
+
+header.page-header {
+   background-color: $primary-color;
+   color: $primary-color-dark;
+   text-align: center;
+   margin: 0;
+   a,
+   a:hover {
+      color: $primary-color-dark;
+      text-decoration: none;
+   }
+   h1 {
+      margin:0;
+   }
+   h2 {
+      font-size: medium;
+
+   }
 }

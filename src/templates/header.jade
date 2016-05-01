@@ -15,12 +15,15 @@ head
 	- wp_head();
 
 | <body <?php body_class(); ?>>
-header
+header.page-header
 	.container
+		|<a href="<?php echo get_settings('home'); ?>">
 		//ugly hack using icon as logo need to be changed to cusom-logo when updating to WP 4.5
 		| <img src="<?=  site_icon_url($size=40);?>"/>
 		h1
 			- bloginfo( 'name' );
-		- bloginfo( 'description' );
+		h2
+			- bloginfo( 'description' );
+		|</a>
 
 - get_template_part( 'nav' );
