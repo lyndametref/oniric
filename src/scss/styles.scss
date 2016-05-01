@@ -4,6 +4,12 @@
 body.home {
   font-family: sans-serif;
   background-color: $secondary-color-light;
+  a,
+  a:hover {
+     color: $primary-color-dark;
+     text-decoration: none;
+  }
+
 }
 
 header.page-header {
@@ -11,11 +17,6 @@ header.page-header {
    color: $primary-color-dark;
    text-align: center;
    margin: 0;
-   a,
-   a:hover {
-      color: $primary-color-dark;
-      text-decoration: none;
-   }
    h1 {
       margin:0;
    }
@@ -23,4 +24,51 @@ header.page-header {
       font-size: medium;
 
    }
+}
+
+.widget-area {
+   h2 {
+      font-size: x-large;
+   }
+   ul li {
+      list-style-type: none;
+   }
+}
+
+.row {
+   background-color: $primary-color-light;
+   margin: 10px 0 0 0;
+
+   .last-post{
+      border-right: solid $secondary-color-light 10px;
+   }
+
+   h1 {
+      font-size: xx-large;
+      margin-bottom: 0;
+      margin-top: 15px;
+   }
+
+   h2.date {
+      font-size: medium;
+      margin-top: 0;
+      font-style: italic;
+   }
+   p {
+      text-align: justify;
+   }
+}
+
+.front-page-archive-link {
+   text-align: center;
+   font-size: large;
+   margin:0;
+   >div {
+      padding: 10px;
+   }
+}
+
+.post-featured-image {
+   text-align: center;
+   margin: 15px;
 }

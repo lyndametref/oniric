@@ -1,12 +1,12 @@
 - get_header();
 .container
 	.row
-		.col-lg-8
+		.col-lg-8(class="last-post")
 			- if ( have_posts() ) :
 			- the_post();
 			h1
 				- the_shortlink(get_the_title());
-			h4
+			h2.date
 				- the_date();
 			.post-featured-image
 				- the_post_thumbnail(array(500,500));
@@ -17,7 +17,6 @@
 		.col-lg-4
 			- get_template_part("sidebar");
 	.row
-		hr
 		- static $count = 1;
 		- if ( have_posts() ) :
 		- while ( have_posts() ) :
@@ -27,7 +26,7 @@
 		.col-lg-4
 			h1
 				- the_shortlink(get_the_title());
-			h4
+			h2.date
 				- the_date();
 
 			.post-featured-image
@@ -41,9 +40,10 @@
 
 		- endwhile;
 		- endif;
-	.row
+	.row(class="front-page-archive-link")
 		.col-lg-12
-			ul#Footer1.widget-area
-				-dynamic_sidebar( 'Frontpage Footer Widgets Area' );
+			div.widget-area
+				ul#frontpage-footer
+					-dynamic_sidebar( 'Frontpage Footer Widgets Area' );
 
 - get_footer();
