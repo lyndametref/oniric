@@ -6,11 +6,13 @@
 
 - get_header();
 .container
-	- $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-	- $total_posts = wp_count_posts()->publish;
-	- $posts_per_page = 9
-	- $args = array( 'posts_per_page' => $posts_per_page, 'order'=> "DES", 'orderby' => 'date' , 'offset' => ($paged-1)*$posts_per_page);
-	- $postslist = get_posts( $args );
+	- $archive_var = init_archive_display_var()
+	| <?php $postslist = get_posts(array(
+	|  'posts_per_page' => $archive_var[posts_per_page],
+	|  'order'=> "DES",
+	|  'orderby' => 'date' ,
+	|  'offset' => $archive_var[offset] )); ?>
+
 	- $count = 0;
 	- foreach ( $postslist as $post ) :
 	- setup_postdata( $post );
@@ -31,8 +33,8 @@
 
 			.post-body
 				- the_excerpt('Pour en savoir plus');
-	- if ($count%3 == "0"):
-	| </div>
+	- if ($count%3 == "2"):
+	| </div> <!-- end div.row> -->
 	- endif;
 
 	- $count++;
@@ -45,14 +47,14 @@
 			|	<?php $args = array(
 			|		'base'               => '%_%',
 			|		'format'             => '?paged=%#%',
-			|		'total'              => ceil($total_posts/$posts_per_page),
-			|		'current'            => $paged,
+			|		'total'              => $archive_var[page_number],
+			|		'current'            => $archive_var[paged],
 			|		'show_all'           => false,
 			|		'end_size'           => 1,
 			|		'mid_size'           => 2,
 			|		'prev_next'          => true,
-			|		'prev_text'          => __('« Previous'),
-			|		'next_text'          => __('Next »'),
+			|		'prev_text'          => __('«« '),
+			|		'next_text'          => __(' »»'),
 			|		'type'               => 'plain',
 			|		'add_args'           => false,
 			|		'add_fragment'       => '',
