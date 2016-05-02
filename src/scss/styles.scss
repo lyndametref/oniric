@@ -32,8 +32,30 @@ nav.navbar {
    h2 {
       font-size: x-large;
    }
-   ul li {
+   ul {
+      padding:10px;
+   }
+   li {
       list-style-type: none;
+   }
+}
+
+.carousel-caption {
+   top: 0px !important;
+   left: 0px !important;
+   padding:0 !important;
+}
+
+
+.carousel-post-title {
+   margin:0;
+   padding:5px;
+   a,
+   a:hover{
+      background-color: $primary-color;
+      color: $secondary-text-color;
+      font-size: medium;
+      padding: 5px;
    }
 }
 
