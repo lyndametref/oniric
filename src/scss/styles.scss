@@ -52,6 +52,7 @@ nav.navbar {
    padding:5px;
    a,
    a:hover{
+      border-radius: 5px;
       background-color: $primary-color;
       color: $secondary-text-color;
       font-size: medium;
@@ -62,10 +63,11 @@ nav.navbar {
 .row {
    background-color: $primary-color-light;
    margin: 10px 0 0 0;
+   border-radius: 25px;
 
-   .last-post{
-      border-right: solid $secondary-color-light 10px;
-   }
+//   .last-post{
+//      border-right: solid $secondary-color-light 10px;
+//   }
 
    h1 {
       font-size: xx-large;
@@ -83,7 +85,7 @@ nav.navbar {
    }
 }
 
-#frontpage-footer-row {
+#frontpage-footer {
    text-align: center;
    font-size: large;
    margin-top: 0;
