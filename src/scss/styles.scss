@@ -1,15 +1,15 @@
 
 @import 'palette';
 
-body.home {
-  font-family: 'Quicksand', sans-serif;
-  background-color: $secondary-color-light;
-  a,
-  a:hover {
-     color: $primary-color-dark;
-     text-decoration: none;
-  }
 
+body.oniric {
+   font-family: 'Quicksand', sans-serif;
+   background-color: $secondary-color-light;
+   a,
+   a:hover {
+      color: $primary-color-dark;
+      text-decoration: none;
+   }
 }
 
 header.page-header {

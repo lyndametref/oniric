@@ -15,7 +15,7 @@ head
 
 	- wp_head();
 
-| <body <?php body_class(); ?>>
+body.oniric(class!="<?= join(' ',get_body_class()); ?>")
 header.page-header
 	.container
 		|<a href="<?php echo get_settings('home'); ?>">
