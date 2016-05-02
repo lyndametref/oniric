@@ -1,6 +1,6 @@
 - get_header();
 .container
-	.row
+	.row.corner-round
 		.col-lg-8(class="last-post")
 			- if ( have_posts() ) :
 			- the_post();
@@ -16,7 +16,7 @@
 			- endif;
 		.col-lg-4
 			- get_template_part("sidebar");
-	.row
+	.row.corner-round
 		- static $count = 1;
 		- if ( have_posts() ) :
 		- while ( have_posts() ) :
