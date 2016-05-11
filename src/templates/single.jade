@@ -1,7 +1,7 @@
 - get_header();
 
 .container
-	.row
+	.row.corner-round
 		.col-lg-12
 			- if ( have_posts() ) :
 			- the_post();
@@ -11,7 +11,7 @@
 				- the_date();
 			.post-featured-image
 				- the_post_thumbnail(array(500,500));
-				
+
 			.post-body
 				- the_content();
 			- endif;
