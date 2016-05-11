@@ -1,7 +1,7 @@
 <?php
 
 wp_deregister_script( 'jquery' );
-add_filter("gform_init_scripts_footer", "init_scripts");
+
 function init_scripts() { return true; }
 
 // register two menus
@@ -18,6 +18,7 @@ register_sidebars(4, array('name' => 'Footer %d Widgets Area'));
 
 // Add feature support
 add_theme_support( 'post-thumbnails' );
+add_theme_support( 'custom-logo' );
 
 // Enable Bootstrap dropdown menu
 // https://github.com/twittem/wp-bootstrap-navwalker

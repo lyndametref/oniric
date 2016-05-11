@@ -20,7 +20,7 @@ header.page-header
 	.container
 		|<a href="<?php echo get_settings('home'); ?>">
 		//ugly hack using icon as logo need to be changed to cusom-logo when updating to WP 4.5
-		| <img src="<?=  site_icon_url($size=40);?>"/>
+		- the_custom_logo()
 		h1
 			- bloginfo( 'name' );
 		h2
