@@ -74,8 +74,9 @@ nav.navbar {
 
    h1 {
       font-size: xx-large;
-      margin-bottom: 0;
+      margin-bottom: 10px;
       margin-top: 15px;
+      color:$primary-color-dark;
    }
 
    h2.date {
@@ -83,6 +84,11 @@ nav.navbar {
       margin-top: 0;
       font-style: italic;
    }
+
+   h2 {
+      font-size: large;
+   }
+
    p {
       text-align: justify;
    }
@@ -103,5 +109,10 @@ nav.navbar {
 }
 .post-featured-image {
    text-align: center;
-   margin: 15px;
+   margin: 20px;
+}
+
+.post-featured-image-single {
+   float: right;
+   margin: 20px;
 }

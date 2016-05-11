@@ -1,18 +1,18 @@
 - get_header();
 
 .container
-	.row
-		.col-lg-12
+	.row.corner-round
 		- if ( have_posts() ) :
 		- the_post();
-		h1
-			- the_title();
+		.col-lg-12
+			h1
+				- the_title();
 
-		.post-featured-image
-			- the_post_thumbnail(array(500,500));
-			
-		.post-body
-			- the_content();
+			.post-featured-image-single
+				- the_post_thumbnail(array(400,400));
+
+			.post-body
+				- the_content();
 		- endif;
 
 - get_footer();
