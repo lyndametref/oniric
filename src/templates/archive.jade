@@ -13,16 +13,14 @@
 	|  'orderby' => 'date' ,
 	|  'offset' => $archive_var[offset] )); ?>
 
-	- $count = 0;
-	- foreach ( $postslist as $post ) :
-	- setup_postdata( $post );
-	- if ($count%3 == "0"):
-	| <div class='row'>
-	- endif;
+	.row.corner-round
+		- $count = 0;
+		- foreach ( $postslist as $post ) :
+		- setup_postdata( $post );
 		.col-lg-4
 			h1
 				- the_shortlink(get_the_title());
-			h4
+			h2.date
 				- the_date();
 
 			.post-featured-image
@@ -33,33 +31,32 @@
 
 			.post-body
 				- the_excerpt('Pour en savoir plus');
-	- if ($count%3 == "2"):
-	| </div> <!-- end div.row> -->
-	- endif;
+		- if ($count%3 == "2"):
+		.row
+		- endif;
 
-	- $count++;
-	- endforeach;
-	- wp_reset_postdata();
+		- $count++;
+		- endforeach;
+		- wp_reset_postdata();
 
-	.row
-		.col-lg-12
-
-			|	<?php $args = array(
-			|		'base'               => '%_%',
-			|		'format'             => '?paged=%#%',
-			|		'total'              => $archive_var[page_number],
-			|		'current'            => $archive_var[paged],
-			|		'show_all'           => false,
-			|		'end_size'           => 1,
-			|		'mid_size'           => 2,
-			|		'prev_next'          => true,
-			|		'prev_text'          => __('«« '),
-			|		'next_text'          => __(' »»'),
-			|		'type'               => 'plain',
-			|		'add_args'           => false,
-			|		'add_fragment'       => '',
-			|		'before_page_number' => '',
-			|		'after_page_number'  => '');
-			|		echo paginate_links($args); ?>
+		.col-lg-12#content-footer
+			div
+				|	<?php $args = array(
+				|		'base'               => '%_%',
+				|		'format'             => '?paged=%#%',
+				|		'total'              => $archive_var[page_number],
+				|		'current'            => $archive_var[paged],
+				|		'show_all'           => false,
+				|		'end_size'           => 1,
+				|		'mid_size'           => 2,
+				|		'prev_next'          => true,
+				|		'prev_text'          => __('«« '),
+				|		'next_text'          => __(' »»'),
+				|		'type'               => 'plain',
+				|		'add_args'           => false,
+				|		'add_fragment'       => '',
+				|		'before_page_number' => '',
+				|		'after_page_number'  => '');
+				|		echo paginate_links($args); ?>
 
 - get_footer();

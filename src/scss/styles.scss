@@ -75,7 +75,7 @@ nav.navbar {
       display:inline-block;
       float:none;
       /* reset the text-align */
-      text-align:left;
+      text-align:justify;
       /* inline-block space fix */
       margin-right:-4px;
       vertical-align: top;
@@ -98,13 +98,9 @@ nav.navbar {
       font-size: large;
       font-weight: bold;
    }
-
-   p {
-      text-align: justify;
-   }
 }
 
-#frontpage-footer {
+#content-footer {
    text-align: center;
    font-size: large;
    margin-top: 0;
@@ -116,6 +112,9 @@ nav.navbar {
 #page-footer{
    text-align: center;
    background-color: $secondary-color-light;
+   >div{
+      text-align: center;
+   }
 }
 
 .post-featured-image {
