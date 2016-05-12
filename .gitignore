@@ -4,6 +4,8 @@ bower_components
 .sass-cache
 .sublime*
 target
+ftp-config.json
+gutil.log
 
 *~
 .DS_Store

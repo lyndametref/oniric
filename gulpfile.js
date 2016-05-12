@@ -13,6 +13,8 @@ var jade = require("gulp-jade-php");
 var plumber = require("gulp-plumber");
 var bower = require('main-bower-files');
 var bowerNormalizer = require('gulp-bower-normalize');
+var gutil = require( 'gulp-util' );
+var ftp = require( 'vinyl-ftp' );
 
 var paths = {
 	styles: {
@@ -70,3 +72,18 @@ gulp.task("default",['full'], function() {
 	gulp.watch(paths.php.src, ["copy"]);
 	gulp.watch(paths.bower.src, ["bower"]);
 });
+
+var ftp_config = require( './ftp-config.json' );
+gulp.task( 'deploy', function () {
+
+	var conn = ftp.create( ftp_config );
+
+	var globs = ['target/oniric/**'];
+
+	// using base = '.' will transfer everything to /public_html correctly
+	// turn off buffering in gulp.src for best performance
+
+	return gulp.src( globs, { buffer: false } )
+		.pipe( conn.dest( '/web/wp-content/themes/oniric' ) );
+
+} );
