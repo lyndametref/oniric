@@ -2,12 +2,12 @@
 
 .container
 	.row.corner-round
-		.col-lg-12
+		.col-lg-10
 			- if ( have_posts() ) :
 			- the_post();
 			h1
 				- the_title();
-			h4
+			h2.date
 				- the_date();
 			.post-featured-image-single
 				- the_post_thumbnail(array(400,400));

@@ -4,6 +4,7 @@
 
 body.oniric {
    font-family: 'Quicksand', sans-serif;
+   font-size: medium;
    background-color: $secondary-color-light;
    a,
    a:hover {
@@ -67,10 +68,18 @@ nav.navbar {
 .row {
    background-color: $primary-color-light;
    margin: 10px 0 0 0;
-
-//   .last-post{
-//      border-right: solid $secondary-color-light 10px;
-//   }
+   // Center a column which wide is less than 12
+   /* cf for info http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-centered-columns  */
+   text-align: center;
+   >div {
+      display:inline-block;
+      float:none;
+      /* reset the text-align */
+      text-align:left;
+      /* inline-block space fix */
+      margin-right:-4px;
+      vertical-align: top;
+   }
 
    h1 {
       font-size: xx-large;
@@ -87,6 +96,7 @@ nav.navbar {
 
    h2 {
       font-size: large;
+      font-weight: bold;
    }
 
    p {
@@ -107,6 +117,7 @@ nav.navbar {
    text-align: center;
    background-color: $secondary-color-light;
 }
+
 .post-featured-image {
    text-align: center;
    margin: 20px;
